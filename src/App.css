@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@300&display=swap');
+
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Biryani', sans-serif;
+	box-sizing: border-box;
+	color: white;
+}
+
+body {
+	background-color: black;
+}
+
+.app-container {
+	border: 2px solid white;
+	margin: 50px auto;
+	width: 800px;
+	max-width: calc(100vw - 50px);
+	min-height: 500px;
+	border-radius: 40px;
+	padding: 30px;
+}
+
+.header-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn {
+	height: 30px;
+	width: 145px;
+	padding: 5px 10px;
+	color: black;
+	background-color: white;
+	border-radius: 5px;
+	margin-top: 5px;
+	text-decoration: none;
+	border: none;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+.btn:active {
+	transform: scale(0.98);
+}
+
+.form-container {
+	display: flex;
+	justify-content: space-around;
+	padding: 10px;
+}
+
+.input {
+	min-width: 270px;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.form-left, .form-right {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 200px;
+}
+
+.form-right input[type='checkbox'] {
+	width: 50px;
+}
+
+.reminder-container {
+	width: 270px;
+	height: 60px;
+	display: flex;
+	/* justify-content: space-between; */
+	align-items: flex-end;
+	flex-basis: 1;
+}
+
+.reminder-checkbox {
+	height: 18px;
+	cursor: pointer;
+	margin-bottom: 9px;
+}
+
+.btn-save {
+	height: 30px;
+	width: 100px;
+	padding: 5px 10px;
+	margin-left: 40px;
+	color: white;
+	background-color: rgb(69, 41, 131);
+	border-radius: 5px;
+	margin-top: 5px;
+	text-decoration: none;
+	border: none;
+	font-weight: bolder;
+	cursor: pointer;
+	display: block;
+}
+
+.btn-save:active {
+	transform: scale(0.98);
+}
+
+.todo-container {
+	background-color: rgb(24, 14, 32);
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: 400px 150px auto;
+	grid-template-rows: 30px 50px 30px;
+	padding: 10px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.reminder-on {
+	border-left: 7px solid rgb(159, 139, 192);
+}
+
+.grid-name {
+	grid-column: 1;
+	grid-row: 1;
+}
+.grid-desc {
+	grid-column: 1;
+	grid-row: 2/4;
+}
+.grid-cat {
+	grid-column: 2;
+	grid-row: 1;
+}
+.grid-time {
+	grid-column: 2;
+	grid-row: 2;
+}
+.grid-priority {
+	grid-column: 2;
+	grid-row: 3;
+}
+.grid-x-icon {
+	height: 70px;
+	grid-column: 3;
+	grid-row: 1;
+	justify-self: end;
+}
