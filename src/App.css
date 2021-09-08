@@ -55,6 +55,7 @@ body {
 	min-width: 270px;
 	margin-bottom: 10px;
 	display: block;
+	color: black;
 }
 
 .form-left, .form-right {
@@ -117,6 +118,11 @@ body {
 
 .reminder-on {
 	border-left: 7px solid rgb(159, 139, 192);
+
+}
+
+.important {
+	background-color: rgb(61, 31, 31);
 }
 
 .grid-name {
