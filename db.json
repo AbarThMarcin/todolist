@@ -1,3 +1,31 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "name": "Wysłać potwierdzenie zapłaty za kurs rozszerzony",
+      "description": "j.w.",
+      "category": "Rozwój",
+      "time": "Dzisiaj",
+      "priority": 1,
+      "reminder": true,
+      "id": 1
+    },
+    {
+      "name": "Kupić farbę i inne",
+      "description": "",
+      "category": "Dom",
+      "time": "Dzisiaj",
+      "priority": 1,
+      "reminder": true,
+      "id": 2
+    },
+    {
+      "name": "Pracowanie",
+      "description": "Ubranka dla Nikosia, dla Marcina i Kasi",
+      "category": "Dom",
+      "time": "31. Sierpnia 2021",
+      "priority": 2,
+      "reminder": false,
+      "id": 3
+    }
+  ]
 }

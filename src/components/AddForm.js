@@ -90,13 +90,16 @@ const AddForm = ({ onAdd }) => {
                   </datalist>
                </div>
                <div className='reminder-container'>
-                  <div><label>Reminder</label></div>
-                  <div className='reminder-checkbox'><input type='checkbox'
-                     checked={reminder}
-                     onChange={(e) => setReminder(e.target.checked)} /></div>
-                  <div><input type='submit'
-                     className='btn-save'
-                     value='SAVE TASK' /></div>
+                  <div className='reminder-checkbox'>
+                     <label>Reminder</label>
+                     <input type='checkbox'
+                        checked={reminder}
+                        onChange={(e) => setReminder(e.target.checked)} /></div>
+                  <div className='reminder-btn'>
+                     <input type='submit'
+                        className='btn-save'
+                        value='SAVE TASK' />
+                  </div>
                </div>
             </div>
          </div>

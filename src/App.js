@@ -1,8 +1,11 @@
 import './App.css';
-import AddForm from './components/AddForm';
+import AddForm from './components/AddForm'
 import Header from './components/Header'
-import Todos from './components/Todos';
+import Todos from './components/Todos'
+import Footer from './components/Footer'
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import About from './components/About';
 
 const URL_ENDPOINT = 'http://localhost:5000/tasks'
 
@@ -12,11 +15,11 @@ function App() {
    const [items, setItems] = useState([])
 
    const sortingFunction = (a, b) => {
-      if (a.name === b.name) {
-         if (a.priority === b.priority) return 0
-         return (a.priority > b.priority ? 1 : -1)
-      } else {
+      if (a.priority === b.priority) {
+         if (a.name === b.name) return 0
          return (a.name > b.name ? 1 : -1)
+      } else {
+         return (a.priority > b.priority ? 1 : -1)
       }
    }
 
@@ -88,19 +91,30 @@ function App() {
    }
 
    return (
-      <div className="app-container">
-         <Header toggleAddForm={() => setShowAddForm(!showAddForm)}
-            showAddForm={showAddForm} />
-         {showAddForm && <AddForm onAdd={addTodo} />}
-         {items.length > 0 ?
-            <Todos
-               items={items}
-               onDelete={deleteTodo}
-               onToggle={toggleReminder}
-            /> :
-            'No tasks'
-         }
-      </div>
+      <Router>
+         <div className="app-container">
+            <Header toggleAddForm={() => setShowAddForm(!showAddForm)}
+               showAddForm={showAddForm} />
+            <Route
+               path='/'
+               exact
+               render={(props) => (
+                  <>
+                     {showAddForm && <AddForm onAdd={addTodo} />}
+                     {items.length > 0 ?
+                        <Todos
+                           items={items}
+                           onDelete={deleteTodo}
+                           onToggle={toggleReminder}
+                        /> :
+                        'No tasks'
+                     }
+                     <Footer />
+                  </>
+               )} />
+            <Route path='/about' component={About} />
+         </div>
+      </Router>
    );
 }
 
