@@ -3,15 +3,16 @@ import AddForm from './components/AddForm'
 import Header from './components/Header'
 import Todos from './components/Todos'
 import Footer from './components/Footer'
+import About from './components/About';
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import About from './components/About';
+import axios from 'axios'
 
 const URL_ENDPOINT = 'http://localhost:5000/tasks'
 
 function App() {
 
-   const [showAddForm, setShowAddForm] = useState(true)
+   const [showAddForm, setShowAddForm] = useState(false)
    const [items, setItems] = useState([])
 
    const sortingFunction = (a, b) => {
@@ -23,20 +24,31 @@ function App() {
       }
    }
 
+   // --------------------------------- fetch ---------------------------------
+
+   // useEffect(() => {
+   //    const getData = async () => {
+   //       const data = await fetchTasks()
+   //       setItems(data.sort(sortingFunction))
+   //    }
+   //    getData()
+   // }, [])
+
+   // // Fetch tasks from server
+   // const fetchTasks = async () => {
+   //    const res = await fetch(URL_ENDPOINT)
+   //    const tasks = await res.json()
+   //    return tasks
+   // }
+
+   // --------------------------------- axios ---------------------------------
+
    useEffect(() => {
-      const getData = async () => {
-         const data = await fetchTasks()
-         setItems(data.sort(sortingFunction))
-      }
-      getData()
+      axios.get(URL_ENDPOINT)
+         .then(res => setItems(res.data.sort(sortingFunction)))
    }, [])
 
-   // Fetch tasks from server
-   const fetchTasks = async () => {
-      const res = await fetch(URL_ENDPOINT)
-      const tasks = await res.json()
-      return tasks
-   }
+   // -------------------------------------------------------------------------
 
    // Fetch task from server
    const fetchTask = async (id) => {
